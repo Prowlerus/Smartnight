@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0
+apiversion: 2
+description: test
+author: Yo
+license: no have
+copyright: Copyright (c) 2014 by Your Company
+
+
+# these should not be edited
+name: modules
+moduleid: com.my.module
+guid: a5575378-2468-4e5e-8e50-c9d0e2636afe
+platform: android
+minsdk: 3.2.0.GA
