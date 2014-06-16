@@ -1,0 +1,24 @@
+﻿@model Smartnight.Models.Admin
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Ingreso incorrecto, revise los datos ingresados.");
+    <div>
+        <fieldset>
+            <legend>Formulario de ingreso</legend>
+            <div>@Html.LabelFor(u => u.Usuario)</div>
+            <div>@Html.TextBoxFor(u => u.Usuario)</div>
+                @Html.ValidationMessageFor(u => u.Usuario)
+
+            <div>@Html.LabelFor(u => u.Password)</div>
+            <div>@Html.PasswordFor(u => u.Password)</div>
+                @Html.ValidationMessageFor(u => u.Password)
+            <input type="submit" value="Login" />
+        </fieldset>
+    </div>   
+}

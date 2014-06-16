@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="smartnight" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^E:\\Programacion\\Smartnight\ Unfuddle\\MVC4\\Smartnight\\Smartnight\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^E:\\Programacion\\Smartnight\ Unfuddle\\MVC4\\Smartnight\\Smartnight\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="smartnight/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^E:\\Programacion\\Smartnight\ Unfuddle\\MVC4\\Smartnight\\Smartnight\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="data source=tcp:twuf1b7l06.database.windows.net,1433;initial catalog=smartnightTest;user id=smart@twuf1b7l06;password=Titanium1;MultipleActiveResultSets=True" tags="">
+    <parameterEntry kind="XmlFile" scope="E:\\Programacion\\Smartnight\ Unfuddle\\MVC4\\Smartnight\\Smartnight\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="SmartnightEntities-Web.config Connection String" description="" value="metadata=res://*/SmartnightModel.csdl|res://*/SmartnightModel.ssdl|res://*/SmartnightModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=tcp:twuf1b7l06.database.windows.net,1433;Initial Catalog=smartnightTest;User ID=smart@twuf1b7l06;Password=Titanium1&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="E:\\Programacion\\Smartnight\ Unfuddle\\MVC4\\Smartnight\\Smartnight\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SmartnightEntities']/@connectionString" />
+  </parameter>
+</parameters>

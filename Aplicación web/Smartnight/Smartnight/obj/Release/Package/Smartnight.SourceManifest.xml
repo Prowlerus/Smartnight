@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <DbDacFx path="E:\Programacion\Smartnight Unfuddle\MVC4\Smartnight\Smartnight\obj\Release\AutoScripts\DefaultConnection_IncrementalSchemaOnly.dacpac" dacpacAction="Deploy" />
+  <IisApp path="E:\Programacion\Smartnight Unfuddle\MVC4\Smartnight\Smartnight\obj\Release\Package\PackageTmp" managedRuntimeVersion="v4.0" />
+  <setAcl path="E:\Programacion\Smartnight Unfuddle\MVC4\Smartnight\Smartnight\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="E:\Programacion\Smartnight Unfuddle\MVC4\Smartnight\Smartnight\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+  <setAcl path="E:\Programacion\Smartnight Unfuddle\MVC4\Smartnight\Smartnight\obj\Release\Package\PackageTmp\App_Data" setAclResourceType="Directory" setAclAccess="Write" />
+</sitemanifest>

@@ -1,0 +1,51 @@
+﻿@model Smartnight.Categoria
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/LayoutLogueado.cshtml";
+}
+    
+   
+     
+<h2>Crear nueva</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)  
+    <script type="text/javascript" src="~/Content/color/jscolor.js"></script>
+    
+    <fieldset>
+        <legend>Categoria</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nombre)
+            @Html.ValidationMessageFor(model => model.Nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Color)
+        </div>
+        <div class="editor-field">            
+            @Html.TextBoxFor(model => model.Color, new { @class = "color" })
+            @Html.ValidationMessageFor(model => model.Color)   
+        </div>       
+   
+        
+              
+        <p>
+            <input type="submit" value="Crear" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Regresar a la lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")   
+}
+   

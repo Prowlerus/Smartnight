@@ -1,0 +1,45 @@
+﻿@model Smartnight.Promocion
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/LayoutLogueado.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<fieldset>
+    <legend>Promocion</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Codigo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Codigo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Producto.Nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Producto.Nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PorcentajeDesc)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PorcentajeDesc)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImporteDesc)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImporteDesc)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

@@ -1,0 +1,92 @@
+﻿@model Smartnight.ViewModels.TurnoVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutLogueado.cshtml";
+}
+
+<h2>Turnos</h2>
+
+<div id="accordion">
+
+    @foreach (var item in Model.listaTurnos)
+    {   
+        <h3>Turno número: -@item.TurnoId-   @item.FechaInicio</h3>
+        <div class="div-table">
+            <div class="div-table-row">
+                <div class="div-table-title-tur">Datos del turno:</div>
+            </div>
+            <div class="div-table-head-5">Fecha Inicio</div>
+            <div class="div-table-head-5">Fecha Fin</div>
+            <div class="div-table-head-5">Dispositivo</div>
+            <div class="div-table-head-5">Monto Vendido</div>
+            <div class="div-table-head-5">Usuario</div>
+
+            <div class="div-table-row">
+                <div class="div-table-col-5">@Html.DisplayFor(model => item.FechaInicio)</div>
+                <div class="div-table-col-5">@Html.DisplayFor(model => item.FechaFin)</div>
+                <div class="div-table-col-5">@Html.DisplayFor(model => item.Dispositivo)</div>
+                <div class="div-table-col-5">@Html.DisplayFor(model => item.MontoVendido)</div>
+                <div class="div-table-col-5">@Html.DisplayFor(model => item.Usuario.Nombre)</div>
+            </div>
+
+
+
+            @foreach (var com in Model.listaComandas.Where(i => i.FechaTurno == item.FechaInicio).Where(i => i.Dispositivo == item.Dispositivo))
+            {  
+                <div class="div-table">
+                        <div class="div-table-title-com">Comanda:   @com.Fecha</div>
+
+                        <div class="div-table-row">
+                            <div class="div-table-head-4">ComandaId</div>
+                            <div class="div-table-head-4">Numero Servicio</div>
+                            <div class="div-table-head-4">Fecha</div>
+                            <div class="div-table-head-4">Total</div>
+                        </div>
+                        <div class="div-table-row">
+                            <div class="div-table-col-4">@Html.DisplayFor(model => com.ComandaId)</div>
+                            <div class="div-table-col-4">@Html.DisplayFor(model => com.NumeroServicio)</div>
+                            <div class="div-table-col-4">@Html.DisplayFor(model => com.Fecha)</div>
+                            <div class="div-table-col-4">@Html.DisplayFor(model => com.Total)</div>
+                        </div>
+                    <div class="div-table">
+                        <div class="div-table-row">
+                            <div class="div-table-title-lin">Líneas de comanda:</div>
+                        </div>
+                        <div class="div-table-row">
+                            <div class="div-table-head-5">Linea Id</div>
+                            <div class="div-table-head-5">Cantidad</div>
+                            <div class="div-table-head-5">Producto</div>
+                            <div class="div-table-head-5">Total</div>
+                            <div class="div-table-head-5">Fecha</div>
+                        </div>
+                    
+                    @foreach (var lin in Model.listaLineas.Where(i => i.Fecha == com.Fecha).
+                Where(i => i.Dispositivo == com.Dispositivo).
+                Where(i => i.NumeroServicio == com.NumeroServicio))
+                    {
+                        <div class="div-table-row">         
+                            <div class="div-table-col-5">@Html.DisplayFor(model => lin.LineaId)</div>
+                            <div class="div-table-col-5">@Html.DisplayFor(model => lin.Cantidad)</div>
+                            <div class="div-table-col-5">@Html.DisplayFor(model => lin.Producto.Nombre)</div>
+                            <div class="div-table-col-5">@Html.DisplayFor(model => lin.Total)</div>
+                            <div class="div-table-col-5">@Html.DisplayFor(model => lin.Fecha)</div>                                         
+                        </div>
+                    }</div>
+                </div>
+            }
+        </div>
+    }
+
+</div>
+
+
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#accordion").accordion({
+            heightStyle: "content"
+        });
+    });
+</script>

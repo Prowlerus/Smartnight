@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Smartnight</title>
+    <link href="http://smartnight.azurewebsites.net/Images/favicon.png" rel="shortcut icon" type="image/x-icon" />    
+    <meta name="viewport" content="width=device-width" />
+    <link rel="SHORTCUT ICON" href="@Url.Content("http://smartnight.azurewebsites.net/images/favicon.png")"/>
+
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" type="text/javascript" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
+
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title-empresa"> @{Html.RenderAction("GetEmpresa", "Admin");}</p>
+                <p class="site-title">@Html.ActionLink("Administrador", "Index", "Usuario")</p>
+                
+            </div>
+            <div class="float-right">
+                 <section id="login">
+                  <div>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <strong>@Html.Encode(User.Identity.Name)</strong>
+                        @Html.ActionLink("Salir", "Logout", "Admin")
+                    }
+                    else
+                    {            
+                        @Html.ActionLink("Ingresar", "Login", "Admin")
+                    }
+                </div>
+                </section>        
+                <nav>
+                    <ul id="menu">          
+                        <li>@Html.ActionLink("Usuarios", "Index", "Usuario")</li>
+                        <li>@Html.ActionLink("Categorías", "Index", "Categoria")</li>
+                        <li>@Html.ActionLink("Productos", "Index", "Producto")</li>
+                        <li>@Html.ActionLink("Promociones", "Index", "Promocion")</li>
+                        <li>@Html.ActionLink("Socios", "Index", "Socio")</li>
+                        <li>@Html.ActionLink("Turnos", "Index", "Turno")</li>
+                    </ul>
+                </nav>              
+            </div>
+           
+        </div>
+    </header>
+    <div id="body">      
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - Inzonesoft</p>
+            </div>
+        </div>
+    </footer>
+
+  @*  @Scripts.Render("~/bundles/jquery")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

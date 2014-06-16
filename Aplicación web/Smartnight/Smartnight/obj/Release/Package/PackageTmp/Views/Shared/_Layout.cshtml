@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Smartnight</title>
+    <link href="~/Images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="http://smartnight.azurewebsites.net/Images/favicon.png" rel="shortcut icon" type="image/x-icon" />    
+
+    <link rel="SHORTCUT ICON" href="@Url.Content("http://smartnight.azurewebsites.net/images/favicon.png")"/>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">@Html.ActionLink("Inicio", "Index", "Home")</p>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    <div>
+                        @if (Request.IsAuthenticated)
+                        {
+                            <strong>@Html.Encode(User.Identity.Name)</strong>
+                            @Html.ActionLink("Salir", "Logout", "Admin")
+                        }
+                        else
+                        {            
+                            @Html.ActionLink("Ingresar", "Login", "Admin")
+                        }
+                    </div>
+                </section>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - Inzonesoft</p>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

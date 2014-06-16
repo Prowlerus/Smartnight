@@ -1,0 +1,99 @@
+﻿@model Smartnight.Producto
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/LayoutLogueado.cshtml";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Producto</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nombre)
+            @Html.ValidationMessageFor(model => model.Nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Precio)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Precio)
+            @Html.ValidationMessageFor(model => model.Precio)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Stock)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Stock)
+            @Html.ValidationMessageFor(model => model.Stock)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CategoriaId, "Categoria")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CategoriaId")
+            @Html.ValidationMessageFor(model => model.CategoriaId)
+        </div>
+        
+         
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Activo)
+        </div>
+       <div class="editor-field">
+            Activar producto @Html.RadioButtonFor(model => model.Activo, "true", true) 
+            Desactivar producto @Html.RadioButtonFor(model => model.Activo, "false", false) 
+            @Html.ValidationMessageFor(model => model.Activo)
+        </div>
+
+
+
+        <p>
+            <input type="submit" value="Editar" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Regresar a la lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Scripts/globalize/globalize.js"></script>
+    <script src="~/Scripts/globalize/cultures/globalize.culture.es-UY.js"></script>
+    <script>
+        $.validator.methods.number = function (value, element) {
+            return this.optional(element) ||
+                !isNaN(Globalize.parseFloat(value));
+        }
+        $(document).ready(function () {
+            Globalize.culture('es-UY');
+        });
+    </script>
+    <script>
+        jQuery.extend(jQuery.validator.methods, {
+            range: function (value, element, param) {
+                //Use the Globalization plugin to parse the value
+                var val = $.global.parseFloat(value);
+                return this.optional(element) || (
+                    val >= param[0] && val <= param[1]);
+            }
+        });
+    </script>
+}

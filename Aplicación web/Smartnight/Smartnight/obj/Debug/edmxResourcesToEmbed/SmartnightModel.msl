@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SmartnightModelStoreContainer" CdmEntityContainer="SmartnightEntities">
+    <EntitySetMapping Name="Administradors">
+      <EntityTypeMapping TypeName="SmartnightModel.Administrador">
+        <MappingFragment StoreEntitySet="Administrador">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="SmartnightModel.Categoria">
+        <MappingFragment StoreEntitySet="Categoria">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
+          <ScalarProperty Name="FechaSincro" ColumnName="FechaSincro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comandas">
+      <EntityTypeMapping TypeName="SmartnightModel.Comanda">
+        <MappingFragment StoreEntitySet="Comanda">
+          <ScalarProperty Name="ComandaId" ColumnName="ComandaId" />
+          <ScalarProperty Name="NumeroServicio" ColumnName="NumeroServicio" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Dispositivo" ColumnName="Dispositivo" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="FechaTurno" ColumnName="FechaTurno" />
+          <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresas">
+      <EntityTypeMapping TypeName="SmartnightModel.Empresa">
+        <MappingFragment StoreEntitySet="Empresa">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Rut" ColumnName="Rut" />
+          <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LineaComandas">
+      <EntityTypeMapping TypeName="SmartnightModel.LineaComanda">
+        <MappingFragment StoreEntitySet="LineaComanda">
+          <ScalarProperty Name="LineaId" ColumnName="LineaId" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="NumeroServicio" ColumnName="NumeroServicio" />
+          <ScalarProperty Name="Dispositivo" ColumnName="Dispositivo" />
+          <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productoes">
+      <EntityTypeMapping TypeName="SmartnightModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+          <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
+          <ScalarProperty Name="FechaSincro" ColumnName="FechaSincro" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Promocions">
+      <EntityTypeMapping TypeName="SmartnightModel.Promocion">
+        <MappingFragment StoreEntitySet="Promocion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="PorcentajeDesc" ColumnName="PorcentajeDesc" />
+          <ScalarProperty Name="ImporteDesc" ColumnName="ImporteDesc" />
+          <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
+          <ScalarProperty Name="FechaSincro" ColumnName="FechaSincro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistroEliminacions">
+      <EntityTypeMapping TypeName="SmartnightModel.RegistroEliminacion">
+        <MappingFragment StoreEntitySet="RegistroEliminacion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdObjeto" ColumnName="IdObjeto" />
+          <ScalarProperty Name="TipoObjeto" ColumnName="TipoObjeto" />
+          <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
+          <ScalarProperty Name="FechaSincro" ColumnName="FechaSincro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Socios">
+      <EntityTypeMapping TypeName="SmartnightModel.Socio">
+        <MappingFragment StoreEntitySet="Socio">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PorcentajeDesc" ColumnName="PorcentajeDesc" />
+          <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
+          <ScalarProperty Name="FechaSincro" ColumnName="FechaSincro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Turnoes">
+      <EntityTypeMapping TypeName="SmartnightModel.Turno">
+        <MappingFragment StoreEntitySet="Turno">
+          <ScalarProperty Name="TurnoId" ColumnName="TurnoId" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Dispositivo" ColumnName="Dispositivo" />
+          <ScalarProperty Name="MontoVendido" ColumnName="MontoVendido" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="SmartnightModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Pin" ColumnName="Pin" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
+          <ScalarProperty Name="FechaSincro" ColumnName="FechaSincro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

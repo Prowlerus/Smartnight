@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Smartnight.Promocion>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutLogueado.cshtml";
+}
+
+<h2>Promociones</h2>
+
+<p>
+    @Html.ActionLink("Crear nueva", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Producto.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PorcentajeDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImporteDesc)
+        </th>       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Producto.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PorcentajeDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImporteDesc)
+        </td>      
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

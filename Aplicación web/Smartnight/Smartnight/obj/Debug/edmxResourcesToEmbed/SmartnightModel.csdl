@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SmartnightModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SmartnightEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Administradors" EntityType="SmartnightModel.Administrador" />
+    <EntitySet Name="Categorias" EntityType="SmartnightModel.Categoria" />
+    <EntitySet Name="Comandas" EntityType="SmartnightModel.Comanda" />
+    <EntitySet Name="Empresas" EntityType="SmartnightModel.Empresa" />
+    <EntitySet Name="LineaComandas" EntityType="SmartnightModel.LineaComanda" />
+    <EntitySet Name="Productoes" EntityType="SmartnightModel.Producto" />
+    <EntitySet Name="Promocions" EntityType="SmartnightModel.Promocion" />
+    <EntitySet Name="RegistroEliminacions" EntityType="SmartnightModel.RegistroEliminacion" />
+    <EntitySet Name="Socios" EntityType="SmartnightModel.Socio" />
+    <EntitySet Name="Turnoes" EntityType="SmartnightModel.Turno" />
+    <EntitySet Name="Usuarios" EntityType="SmartnightModel.Usuario" />
+    <AssociationSet Name="FK__Administr__Empre__1273C1CD" Association="SmartnightModel.FK__Administr__Empre__1273C1CD">
+      <End Role="Empresa" EntitySet="Empresas" />
+      <End Role="Administrador" EntitySet="Administradors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Categoria__Empre__1920BF5C" Association="SmartnightModel.FK__Categoria__Empre__1920BF5C">
+      <End Role="Empresa" EntitySet="Empresas" />
+      <End Role="Categoria" EntitySet="Categorias" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__Catego__1BFD2C07" Association="SmartnightModel.FK__Producto__Catego__1BFD2C07">
+      <End Role="Categoria" EntitySet="Categorias" />
+      <End Role="Producto" EntitySet="Productoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comanda__2A4B4B5E" Association="SmartnightModel.FK__Comanda__2A4B4B5E">
+      <End Role="Turno" EntitySet="Turnoes" />
+      <End Role="Comanda" EntitySet="Comandas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LineaComanda__2D27B809" Association="SmartnightModel.FK__LineaComanda__2D27B809">
+      <End Role="Comanda" EntitySet="Comandas" />
+      <End Role="LineaComanda" EntitySet="LineaComandas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpresaId_Comanda" Association="SmartnightModel.FK_EmpresaId_Comanda">
+      <End Role="Empresa" EntitySet="Empresas" />
+      <End Role="Comanda" EntitySet="Comandas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Promocion__Empre__1FCDBCEB" Association="SmartnightModel.FK__Promocion__Empre__1FCDBCEB">
+      <End Role="Empresa" EntitySet="Empresas" />
+      <End Role="Promocion" EntitySet="Promocions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegistroE__Empre__3C34F16F" Association="SmartnightModel.FK__RegistroE__Empre__3C34F16F">
+      <End Role="Empresa" EntitySet="Empresas" />
+      <End Role="RegistroEliminacion" EntitySet="RegistroEliminacions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Socio__EmpresaId__239E4DCF" Association="SmartnightModel.FK__Socio__EmpresaId__239E4DCF">
+      <End Role="Empresa" EntitySet="Empresas" />
+      <End Role="Socio" EntitySet="Socios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Turno__EmpresaId__276EDEB3" Association="SmartnightModel.FK__Turno__EmpresaId__276EDEB3">
+      <End Role="Empresa" EntitySet="Empresas" />
+      <End Role="Turno" EntitySet="Turnoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__Empresa__164452B1" Association="SmartnightModel.FK__Usuario__Empresa__164452B1">
+      <End Role="Empresa" EntitySet="Empresas" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpresaId" Association="SmartnightModel.FK_EmpresaId">
+      <End Role="Empresa" EntitySet="Empresas" />
+      <End Role="Producto" EntitySet="Productoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpresaId_Lineacomanda" Association="SmartnightModel.FK_EmpresaId_Lineacomanda">
+      <End Role="Empresa" EntitySet="Empresas" />
+      <End Role="LineaComanda" EntitySet="LineaComandas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LineaComa__Produ__2C3393D0" Association="SmartnightModel.FK__LineaComa__Produ__2C3393D0">
+      <End Role="Producto" EntitySet="Productoes" />
+      <End Role="LineaComanda" EntitySet="LineaComandas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Promocion__Produ__1ED998B2" Association="SmartnightModel.FK__Promocion__Produ__1ED998B2">
+      <End Role="Producto" EntitySet="Productoes" />
+      <End Role="Promocion" EntitySet="Promocions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Turno__UsuarioId__267ABA7A" Association="SmartnightModel.FK__Turno__UsuarioId__267ABA7A">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Turno" EntitySet="Turnoes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Administrador">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Usuario" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="EmpresaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Empresa" Relationship="SmartnightModel.FK__Administr__Empre__1273C1CD" FromRole="Administrador" ToRole="Empresa" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Color" Type="String" Nullable="false" MaxLength="7" Unicode="false" FixedLength="false" />
+    <Property Name="EmpresaId" Type="Int32" Nullable="false" />
+    <Property Name="FechaSincro" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Empresa" Relationship="SmartnightModel.FK__Categoria__Empre__1920BF5C" FromRole="Categoria" ToRole="Empresa" />
+    <NavigationProperty Name="Productoes" Relationship="SmartnightModel.FK__Producto__Catego__1BFD2C07" FromRole="Categoria" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Comanda">
+    <Key>
+      <PropertyRef Name="NumeroServicio" />
+      <PropertyRef Name="Fecha" />
+      <PropertyRef Name="Dispositivo" />
+    </Key>
+    <Property Name="ComandaId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NumeroServicio" Type="Int32" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Dispositivo" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Total" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="FechaTurno" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EmpresaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Turno" Relationship="SmartnightModel.FK__Comanda__2A4B4B5E" FromRole="Comanda" ToRole="Turno" />
+    <NavigationProperty Name="LineaComandas" Relationship="SmartnightModel.FK__LineaComanda__2D27B809" FromRole="Comanda" ToRole="LineaComanda" />
+    <NavigationProperty Name="Empresa" Relationship="SmartnightModel.FK_EmpresaId_Comanda" FromRole="Comanda" ToRole="Empresa" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Direccion" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Telefono" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Rut" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="RazonSocial" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Administradors" Relationship="SmartnightModel.FK__Administr__Empre__1273C1CD" FromRole="Empresa" ToRole="Administrador" />
+    <NavigationProperty Name="Categorias" Relationship="SmartnightModel.FK__Categoria__Empre__1920BF5C" FromRole="Empresa" ToRole="Categoria" />
+    <NavigationProperty Name="Comandas" Relationship="SmartnightModel.FK_EmpresaId_Comanda" FromRole="Empresa" ToRole="Comanda" />
+    <NavigationProperty Name="Promocions" Relationship="SmartnightModel.FK__Promocion__Empre__1FCDBCEB" FromRole="Empresa" ToRole="Promocion" />
+    <NavigationProperty Name="RegistroEliminacions" Relationship="SmartnightModel.FK__RegistroE__Empre__3C34F16F" FromRole="Empresa" ToRole="RegistroEliminacion" />
+    <NavigationProperty Name="Socios" Relationship="SmartnightModel.FK__Socio__EmpresaId__239E4DCF" FromRole="Empresa" ToRole="Socio" />
+    <NavigationProperty Name="Turnoes" Relationship="SmartnightModel.FK__Turno__EmpresaId__276EDEB3" FromRole="Empresa" ToRole="Turno" />
+    <NavigationProperty Name="Usuarios" Relationship="SmartnightModel.FK__Usuario__Empresa__164452B1" FromRole="Empresa" ToRole="Usuario" />
+    <NavigationProperty Name="Productoes" Relationship="SmartnightModel.FK_EmpresaId" FromRole="Empresa" ToRole="Producto" />
+    <NavigationProperty Name="LineaComandas" Relationship="SmartnightModel.FK_EmpresaId_Lineacomanda" FromRole="Empresa" ToRole="LineaComanda" />
+  </EntityType>
+  <EntityType Name="LineaComanda">
+    <Key>
+      <PropertyRef Name="LineaId" />
+    </Key>
+    <Property Name="LineaId" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="ProductoId" Type="Int32" Nullable="false" />
+    <Property Name="Total" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NumeroServicio" Type="Int32" Nullable="false" />
+    <Property Name="Dispositivo" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="EmpresaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Comanda" Relationship="SmartnightModel.FK__LineaComanda__2D27B809" FromRole="LineaComanda" ToRole="Comanda" />
+    <NavigationProperty Name="Empresa" Relationship="SmartnightModel.FK_EmpresaId_Lineacomanda" FromRole="LineaComanda" ToRole="Empresa" />
+    <NavigationProperty Name="Producto" Relationship="SmartnightModel.FK__LineaComa__Produ__2C3393D0" FromRole="LineaComanda" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Precio" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Stock" Type="Int32" Nullable="false" />
+    <Property Name="CategoriaId" Type="Int32" Nullable="false" />
+    <Property Name="EmpresaId" Type="Int32" Nullable="false" />
+    <Property Name="FechaSincro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Categoria" Relationship="SmartnightModel.FK__Producto__Catego__1BFD2C07" FromRole="Producto" ToRole="Categoria" />
+    <NavigationProperty Name="Empresa" Relationship="SmartnightModel.FK_EmpresaId" FromRole="Producto" ToRole="Empresa" />
+    <NavigationProperty Name="LineaComandas" Relationship="SmartnightModel.FK__LineaComa__Produ__2C3393D0" FromRole="Producto" ToRole="LineaComanda" />
+    <NavigationProperty Name="Promocions" Relationship="SmartnightModel.FK__Promocion__Produ__1ED998B2" FromRole="Producto" ToRole="Promocion" />
+  </EntityType>
+  <EntityType Name="Promocion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="ProductoId" Type="Int32" />
+    <Property Name="PorcentajeDesc" Type="Double" Nullable="false" />
+    <Property Name="ImporteDesc" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="EmpresaId" Type="Int32" Nullable="false" />
+    <Property Name="FechaSincro" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Empresa" Relationship="SmartnightModel.FK__Promocion__Empre__1FCDBCEB" FromRole="Promocion" ToRole="Empresa" />
+    <NavigationProperty Name="Producto" Relationship="SmartnightModel.FK__Promocion__Produ__1ED998B2" FromRole="Promocion" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="RegistroEliminacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="IdObjeto" Type="Int32" Nullable="false" />
+    <Property Name="TipoObjeto" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="EmpresaId" Type="Int32" Nullable="false" />
+    <Property Name="FechaSincro" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Empresa" Relationship="SmartnightModel.FK__RegistroE__Empre__3C34F16F" FromRole="RegistroEliminacion" ToRole="Empresa" />
+  </EntityType>
+  <EntityType Name="Socio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Apellido" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Telefono" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="PorcentajeDesc" Type="Double" Nullable="false" />
+    <Property Name="EmpresaId" Type="Int32" Nullable="false" />
+    <Property Name="FechaSincro" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Empresa" Relationship="SmartnightModel.FK__Socio__EmpresaId__239E4DCF" FromRole="Socio" ToRole="Empresa" />
+  </EntityType>
+  <EntityType Name="Turno">
+    <Key>
+      <PropertyRef Name="FechaInicio" />
+      <PropertyRef Name="Dispositivo" />
+    </Key>
+    <Property Name="TurnoId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaFin" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Dispositivo" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="MontoVendido" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <Property Name="EmpresaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Comandas" Relationship="SmartnightModel.FK__Comanda__2A4B4B5E" FromRole="Turno" ToRole="Comanda" />
+    <NavigationProperty Name="Empresa" Relationship="SmartnightModel.FK__Turno__EmpresaId__276EDEB3" FromRole="Turno" ToRole="Empresa" />
+    <NavigationProperty Name="Usuario" Relationship="SmartnightModel.FK__Turno__UsuarioId__267ABA7A" FromRole="Turno" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Pin" Type="String" Nullable="false" MaxLength="4" Unicode="false" FixedLength="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Apellido" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="EmpresaId" Type="Int32" Nullable="false" />
+    <Property Name="FechaSincro" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Empresa" Relationship="SmartnightModel.FK__Usuario__Empresa__164452B1" FromRole="Usuario" ToRole="Empresa" />
+    <NavigationProperty Name="Turnoes" Relationship="SmartnightModel.FK__Turno__UsuarioId__267ABA7A" FromRole="Usuario" ToRole="Turno" />
+  </EntityType>
+  <Association Name="FK__Administr__Empre__1273C1CD">
+    <End Role="Empresa" Type="SmartnightModel.Empresa" Multiplicity="1" />
+    <End Role="Administrador" Type="SmartnightModel.Administrador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Administrador">
+        <PropertyRef Name="EmpresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Categoria__Empre__1920BF5C">
+    <End Role="Empresa" Type="SmartnightModel.Empresa" Multiplicity="1" />
+    <End Role="Categoria" Type="SmartnightModel.Categoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Categoria">
+        <PropertyRef Name="EmpresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__Catego__1BFD2C07">
+    <End Role="Categoria" Type="SmartnightModel.Categoria" Multiplicity="1" />
+    <End Role="Producto" Type="SmartnightModel.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="CategoriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comanda__2A4B4B5E">
+    <End Role="Turno" Type="SmartnightModel.Turno" Multiplicity="1" />
+    <End Role="Comanda" Type="SmartnightModel.Comanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Turno">
+        <PropertyRef Name="FechaInicio" />
+        <PropertyRef Name="Dispositivo" />
+      </Principal>
+      <Dependent Role="Comanda">
+        <PropertyRef Name="FechaTurno" />
+        <PropertyRef Name="Dispositivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LineaComanda__2D27B809">
+    <End Role="Comanda" Type="SmartnightModel.Comanda" Multiplicity="1" />
+    <End Role="LineaComanda" Type="SmartnightModel.LineaComanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comanda">
+        <PropertyRef Name="NumeroServicio" />
+        <PropertyRef Name="Fecha" />
+        <PropertyRef Name="Dispositivo" />
+      </Principal>
+      <Dependent Role="LineaComanda">
+        <PropertyRef Name="NumeroServicio" />
+        <PropertyRef Name="Fecha" />
+        <PropertyRef Name="Dispositivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpresaId_Comanda">
+    <End Role="Empresa" Type="SmartnightModel.Empresa" Multiplicity="1" />
+    <End Role="Comanda" Type="SmartnightModel.Comanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comanda">
+        <PropertyRef Name="EmpresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Promocion__Empre__1FCDBCEB">
+    <End Role="Empresa" Type="SmartnightModel.Empresa" Multiplicity="1" />
+    <End Role="Promocion" Type="SmartnightModel.Promocion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Promocion">
+        <PropertyRef Name="EmpresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegistroE__Empre__3C34F16F">
+    <End Role="Empresa" Type="SmartnightModel.Empresa" Multiplicity="1" />
+    <End Role="RegistroEliminacion" Type="SmartnightModel.RegistroEliminacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegistroEliminacion">
+        <PropertyRef Name="EmpresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Socio__EmpresaId__239E4DCF">
+    <End Role="Empresa" Type="SmartnightModel.Empresa" Multiplicity="1" />
+    <End Role="Socio" Type="SmartnightModel.Socio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Socio">
+        <PropertyRef Name="EmpresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Turno__EmpresaId__276EDEB3">
+    <End Role="Empresa" Type="SmartnightModel.Empresa" Multiplicity="1" />
+    <End Role="Turno" Type="SmartnightModel.Turno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Turno">
+        <PropertyRef Name="EmpresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__Empresa__164452B1">
+    <End Role="Empresa" Type="SmartnightModel.Empresa" Multiplicity="1" />
+    <End Role="Usuario" Type="SmartnightModel.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="EmpresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpresaId">
+    <End Role="Empresa" Type="SmartnightModel.Empresa" Multiplicity="1" />
+    <End Role="Producto" Type="SmartnightModel.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="EmpresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpresaId_Lineacomanda">
+    <End Role="Empresa" Type="SmartnightModel.Empresa" Multiplicity="1" />
+    <End Role="LineaComanda" Type="SmartnightModel.LineaComanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LineaComanda">
+        <PropertyRef Name="EmpresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LineaComa__Produ__2C3393D0">
+    <End Role="Producto" Type="SmartnightModel.Producto" Multiplicity="1" />
+    <End Role="LineaComanda" Type="SmartnightModel.LineaComanda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LineaComanda">
+        <PropertyRef Name="ProductoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Promocion__Produ__1ED998B2">
+    <End Role="Producto" Type="SmartnightModel.Producto" Multiplicity="0..1" />
+    <End Role="Promocion" Type="SmartnightModel.Promocion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Promocion">
+        <PropertyRef Name="ProductoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Turno__UsuarioId__267ABA7A">
+    <End Role="Usuario" Type="SmartnightModel.Usuario" Multiplicity="1" />
+    <End Role="Turno" Type="SmartnightModel.Turno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Turno">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

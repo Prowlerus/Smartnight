@@ -1,0 +1,31 @@
+﻿@model Smartnight.Categoria
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/LayoutLogueado.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<fieldset>
+    <legend>Categoria</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Color)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Color)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>
